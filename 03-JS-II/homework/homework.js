@@ -21,7 +21,11 @@ function conection(status) {
   //Cuando el estado es igual a 2, el usuario está "Away"
   //De lo contrario, presumimos que el usuario está "Offline"
   //Devolver el estado de conexión de usuario en cada uno de los casos.
-  if (status === 1) {return "Online"} else if (status === 2) {return "Away"} else {return "Offline"}
+  switch (status) {
+    case 1: return "Online"
+    case 2: return "Away"
+    default: return "Offline"
+  }
 }
 
 function saludo(idioma) {
@@ -31,7 +35,10 @@ function saludo(idioma) {
   // Si "idioma" es "ingles", devuelve "Hello!"
   // Si "idioma" no es ninguno de los anteiores o es `undefined` devuelve "Hola!"
   // Tu código:
-  if (idioma === 'aleman') {return "Guten Tag!"} else if (idioma === 'mandarin') {return "Ni Hao!"} else if (idioma === 'ingles') {return "Hello!"} else {return "Hola!"}
+  if (idioma === 'aleman') {return "Guten Tag!"} 
+  else if (idioma === 'mandarin') {return "Ni Hao!"} 
+  else if (idioma === 'ingles') {return "Hello!"} 
+  else {return "Hola!"}
 }
 
 function colors(color) {
@@ -62,7 +69,7 @@ function estaEnRango(numero) {
   // Devuelve "true" si "numero" es menor que 50 y mayor que 20
   // De lo contrario, devuelve "false"
   // Tu código:
-  return (numero < 50) && (numero > 20)
+  return (numero < 50 && numero > 20)
 }
 
 function esEntero(numero) {
@@ -73,7 +80,7 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
-  return numero % 1 === 0
+  return numero === Math.floor (numero)
 }
 function fizzBuzz(numero) {
   // Si "numero" es divisible entre 3, devuelve "fizz"
@@ -114,7 +121,7 @@ function esPrimo(numero) {
   // Nota: Los números 0 y 1 NO son considerados números primos
  if (numero < 2) {return false}
  if (numero === 2) {return true}
- for (let i = 2; i < numero; i++) {
+ for (var i = 2; i < numero; i++) {
   if (numero % i === 0) {
     return false
   }
